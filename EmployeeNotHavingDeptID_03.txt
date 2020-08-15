@@ -1,0 +1,19 @@
+1.
+	Select * from EMPLOYEE
+	Where deptid not in (Select deptid from DEPARTMENT)
+
+2.
+
+	Select e.* from EMPLOYEE e
+	Left Join DEPARTMENT d ON e.deptid = d.deptid
+	Where e.deptid not in (Select deptid from DEPARTMENT)
+
+3.
+
+	Select * from EMPLOYEE where deptid not in (1,2)
+
+
+The 3 method I would least recommend to another developer.
+	
+
+

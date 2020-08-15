@@ -1,0 +1,12 @@
+As you have mentioned that before insertion of any data in table Region, we realized that we dont need this table.
+
+IF EXISTS (SELECT TOP 1 * FROM dbo.region) 
+BEGIN  
+	DROP TABLE dbo.region; 
+END 
+
+
+If there is no data present in table Region then above query will never drop table Region.
+Becasue IF EXISTS condition would always be FALSE. It will not return any data from table Region becuase table is not having any data. And logic here is if data is present then only drop the table.
+
+So this table Region will never be dropped by using above query.

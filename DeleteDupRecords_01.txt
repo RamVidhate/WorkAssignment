@@ -1,0 +1,8 @@
+
+
+with temp(rank1,eid,ename,mngrid,dptid,sal,edob)
+as (
+   select row_number() over ( partition by empid, empname, managerid, deptid, salary, DOB order by empid, empname, managerid, deptid, salary, DOB ) , * 
+   from EMPLOYEE
+)
+delete from temp where rank1 > 1;
